@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private movieService: MoviesService) {}
+
+  ngOnInit() {
+    this.movieService.getFeature().subscribe(console.log);
+  }
 
 }
